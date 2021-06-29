@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Incoming call from {{data.from}}</h1>
+<!-- <div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div> -->
+<div mat-dialog-actions>
+    <div class="example-button-container" style="margin-top: 10px;">
+        <button mat-fab style="background-color: red;" (click)="onClick(false)"
+            aria-label="Example icon button with a heart icon">
+            <mat-icon>video_call</mat-icon>
+        </button>
+    </div>
+    <div class="example-button-container" style="margin-top: 10px;">
+        <button mat-fab style="background-color: rgb(20,160,157,0.85);" (click)="onClick(true)"
+            aria-label="Example icon button with a heart icon" cdkFocusInitial>
+            <mat-icon> video_call</mat-icon>
+        </button>
+    </div>
+
+    <!-- <button mat-button (click)="onNoClick()">Reject</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Accept</button> -->
+</div>

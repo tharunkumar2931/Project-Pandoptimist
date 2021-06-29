@@ -1,0 +1,233 @@
+<div class="sos-request-container page-wrapper">
+    <div class="row">
+        <div class="col-md-4 search">
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="">
+                        <div class="productCardContainer">
+                            <div class="productCardContent">
+                                <div class="productCardImage">
+                                    <img src="https://pbs.twimg.com/profile_images/777547960850718720/uLB18LXG.jpg" alt="" />
+                                    <a class="imageCardEffect">Product</a>
+                                </div>
+
+
+                                <div style="margin-top: -80px;
+                                " class="productCardDetails" *ngIf=" myRequest.id==null">
+                                    <div class="productCardModel">
+                                        <span class="modelCardEffect"></span>
+                                        <a style="color: rgba(226, 119, 32, 0.836);font-weight: bolder;">
+                                              <strong>Open Request</strong>
+                                        </a>
+                                    </div>
+                                    <div class="productCardNoRequest">
+                                        <!-- <h2 class="card-title text-center">Your Request</h2> -->
+                                        <p>No Open Requests currently!!!</p>
+                                        <p>Come back after someTime</p>
+
+                                    </div>
+                                   
+                                </div>
+
+
+
+                                <div style="margin-top: -80px;
+                                " class="productCardDetails" *ngIf=" myRequest.id!=null">
+                                    <div class="productCardModel">
+                                        <span class="modelCardEffect"></span>
+                                        <a>
+                                            <strong>Open Request</strong>
+                                        </a>
+                                    </div>
+                                    <div class="productCardDetailsList">
+                                        <div class="list-group">
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Name : {{myRequest.name}}
+                                                </span>
+
+                                            </a>
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Phone : {{myRequest.phoneNumber}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Gender : {{myRequest.gender}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Email Id : {{myRequest.email}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    City : {{myRequest.myCity}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Requirment : {{myRequest.requirement[0].requirementName}}
+                                                </span>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="comments" style="    padding-top: 108px;
+                                    margin-left: 60px;     ">
+                                        <mat-form-field class="example-full-width ">
+                                            <mat-label>Add Resource Details</mat-label>
+                                            <textarea class="animated" [(ngModel)]="comments " name="comments " matInput placeholder="Ex. It makes me feel... ;"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="productCardPrice">
+
+                                        <button class="btn addToCart" (click)="PassRequest()">
+                                            <i class="fas fa-share"></i> Pass Request
+                                        </button>
+                                        <button class="btn addToCart" (click)="closeRequest()">
+                                            <i class="fas fa-thumbs-up"></i> Close Request
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 sos ">
+            <app-search-resource [searchingData]="searchData"></app-search-resource>
+            <!-- <app-search-resource></app-search-resource> -->
+        </div>
+
+    </div>
+
+
+
+</div>
+<!-- <div class="sos-request-container page-wrapper">
+
+    <div class="row">
+        <div class="col-md-4 search">
+            <div class="card card-block" *ngIf="myRequest.id==null">
+                <h2 class="card-title text-center">Your Request</h2>
+                <p>No Open Requests currently!!!</p>
+                <p>Come back after someTime</p>
+            </div>
+            <div class="openRequest">
+                <div class="card card-block" style="
+                align-items: center;" *ngIf=" myRequest.id!=null">
+                    <h2 class="card-title text-center ">Your Request</h2>
+                    <p>
+                        Name : {{myRequest.name}}
+                    </p>
+                    <p>
+                        Phone : {{myRequest.phoneNumber}}
+                    </p>
+                    <p>
+                        Gender : {{myRequest.gender}}
+                    </p>
+                    <p>
+                        Email Id : {{myRequest.email}}
+                    </p>
+                    <p>
+                        Hospitalized : {{myRequest.hospitalized}}
+                    </p>
+                    <p>
+                        City : {{myRequest.myCity}}
+                    </p>
+                    <p>
+                        Requirment : {{myRequest.requirement[0].requirementName}}
+                    </p>
+                    <div class="">
+                        <div class="md-form amber-textarea active-amber-textarea-2">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <textarea id="form24" [(ngModel)]="comments " name="comments " class="md-textarea form-control" rows="3"></textarea>
+                            <label for="form24">Comments</label>
+                        </div>
+                        <div class="example-button-row ">
+                            <button type="button " style="margin-top: 5px;     margin-right: 100px;color: whitesmoke; " mat-raised-button class="color " (click)="PassRequest()">Pass Request</button>
+                            <button type="button " style="margin-top: 5px; color: whitesmoke; " mat-raised-button class="color " (click)="closeRequest() ">Close Request</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 sos ">
+            <app-search-resource></app-search-resource>
+        </div>
+
+    </div>
+</div> -->
+
+<!-- <div class="allContainer mt-3 ">
+    <div class="card card-block " *ngIf="myRequest.id==null ">
+        <h2 class="card-title text-center ">Your Request</h2>
+        <p>No Open Requests currently!!!</p>
+        <p>Come back after someTime</p>
+    </div>
+    <div class="openRequest ">
+        <div class="card card-block " *ngIf="myRequest.id!=null ">
+            <h2 class="card-title text-center ">Your Request</h2>
+            <p>
+                Name: {{myRequest.name}}
+            </p>
+            <p>
+                Phone: {{myRequest.phoneNumber}}
+            </p>
+            <p>
+                Gender: {{myRequest.gender}}
+            </p>
+            <p>
+                Email: {{myRequest.email}}
+            </p>
+            <p>
+                Hospitalized: {{myRequest.hospitalized}}
+            </p>
+            <p>
+                City: {{myRequest.myCity}}
+            </p>
+            <p>
+                Requirment is: {{myRequest.requirement[0].requirementName}}
+            </p>
+            <div class="res-details ">
+                <mat-form-field class="example-full-width ">
+                    <mat-label>Add Details</mat-label>
+                    <textarea [(ngModel)]="comments " name="comments " matInput placeholder="Ex. It makes me feel... "></textarea>
+                </mat-form-field>
+                <div class="example-button-row ">
+                    <button type="button " style="margin-top: 5px; margin-right: 2px;color: whitesmoke; " mat-raised-button class="color " (click)="PassRequest() ">Pass Request</button>
+                    <button type="button " style="margin-top: 5px; color: whitesmoke; " mat-raised-button class="color " (click)="closeRequest() ">Close Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-search-resource></app-search-resource>
+    </div>
+</div> -->

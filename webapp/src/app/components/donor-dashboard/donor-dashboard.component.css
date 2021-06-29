@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+*{
+    font-family: "Poppins";
+} 
+.heading{
+    color: green;
+    font-size:60px;
+    font-weight:bolder; 
+    padding-top: 30px;
+}
+.head1{
+    padding-top: 30px;
+    color: rgb(49, 49, 186);
+    font-weight:normal;
+    font-size: 17px;
+}
+
+.para{
+    color: rgb(49, 49, 186);
+    padding-top: 30px;
+    font-weight: normal;
+    font-size: 17px;
+
+}
+.donor{
+    background-image: url("/assets/donation.jpg");
+    background-size: cover;
+    object-fit: fill;
+    height:130%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}

@@ -1,0 +1,122 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+jwt :
+  secret: BvPHGM8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadwezxgeEByY
+server:
+  port: 8080
+ribbon:
+  ReadTimeout: 60000
+
+#spring:
+#  cloud:
+#    gateway:
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "*"
+#            allowedMethods:
+#              - GET
+#              - POST
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            exposedHeaders: "*"
+
+      routes:
+        - id: user-management-service
+          uri: lb://user-management-service
+          predicates:
+            - Path=/user-management-service/**
+          filters:
+            - RewritePath=/user-management-service(?<segment>/?.*), $\{segment}
+
+        - id: otp-service
+          uri: lb://otp-service
+          predicates:
+            - Path=/otp-service/**
+          filters:
+            - RewritePath=/otp-service(?<segment>/?.*), $\{segment}
+
+        - id: doctor-consultation-service
+          uri: lb://doctor-consultation-service
+          predicates:
+            - Path=/doctor-consultation-service/**
+          filters:
+            - RewritePath=/doctor-consultation-service(?<segment>/?.*), $\{segment}
+
+        - id: donor-service
+          uri: lb://donor-service
+          predicates:
+            - Path=/donor-service/**
+          filters:
+            - RewritePath=/donor-service(?<segment>/?.*), $\{segment}
+
+        - id: medical-request-service
+          uri: lb://medical-request-service
+          predicates:
+            - Path=/medical-request-service/**
+          filters:
+            - RewritePath=/medical-request-service(?<segment>/?.*), $\{segment}
+
+#        - id: chat-service
+#          uri: lb://chat-service
+#          predicates:
+#            - Path=/chat-service/**
+#          filters:
+#            - RewritePath=/chat-service(?<segment>/?.*), $\{segment}
+#
+
+        - id: volunteer-service
+          uri: lb://volunteer-service
+          predicates:
+            - Path=/volunteer-service/**
+          filters:
+            - RewritePath=/volunteer-service(?<segment>/?.*), $\{segment}
+
+
+        - id: patient-service
+          uri: lb://patient-service
+          predicates:
+            - Path=/patient-service/**
+          filters:
+            - RewritePath=/patient-service(?<segment>/?.*), $\{segment}
+
+
+        - id: war-room-service
+          uri: lb://war-room-service
+          predicates:
+            - Path=/war-room-service/**
+          filters:
+            - RewritePath=/war-room-service(?<segment>/?.*), $\{segment}
+
+        - id: graph-service
+          uri: lb://graph-service
+          predicates:
+            - Path=/graph-service/**
+          filters:
+            - RewritePath=/graph-service(?<segment>/?.*), $\{segment}
+
+
+
+#        - id: webapplication
+#          uri: lb://webapplication
+#          predicates:
+#            - Path=/**
+#          filters:
+#            - RewritePath=(?<segment>/?.*), $\{segment}
+#
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

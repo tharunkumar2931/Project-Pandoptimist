@@ -1,0 +1,139 @@
+<!-- <section class="search-sec">
+    <div class="container">
+        <form action="#" method="post" novalidate="novalidate">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                            <input type="text" class=" text-input form-control search-slt" matInput
+                                placeholder="Which resource you are looking for ?" [(ngModel)]="resourceName "
+                                [ngModelOptions]="{standalone:true} ">
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                            <input type="text" class=" text-input form-control search-slt" matInput
+                                placeholder="Location" [(ngModel)]="cityName " [ngModelOptions]="{standalone:true} ">
+
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                            <button type="button" class="btn btn-danger wrn-btn" (click)="search()">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section> -->
+
+
+<!-- <div>
+    <p>{{searchingData.resource}}</p>
+    <p>{{searchingData.location}}</p>
+</div> -->
+<div class="col-lg-2 col-md-2 col-sm-12 p-0">
+  <button type="button" class="btn btn-primary" (click)="search()">Get Resources</button>
+</div>
+
+<!-- <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+    <button type="button" class="btn btn-danger wrn-btn" (click)="clear()">Clear</button>
+</div> -->
+
+<div class="productCardContainer" style="padding: 15px;
+" *ngIf="resultArray.length!==0">
+    <div class="productCardContent" style="display: flex;
+    flex-direction: row;">
+        <div class="productCardImage">
+            <img src="https://pbs.twimg.com/profile_images/777547960850718720/uLB18LXG.jpg" alt="" />
+            <a class="imageCardEffect">Product</a>
+        </div>
+        <div
+             class="productCardDetails" *ngFor="let result of resultArray">
+            <div class="productCardModel">
+                <span class="modelCardEffect"></span>
+                <a>
+                    Available Resource
+                </a>
+            </div>
+            <div class="productCardDetailsList">
+                <div class="list-group">
+                    <a class="list-group-item">
+                        <span class="detailIcon">
+
+                        </span>
+                        <span class="detailInfo">
+                            Hello,
+                        </span>
+
+                    </a>
+                    <a class="list-group-item">
+                        <span class="detailIcon">
+
+                        </span>
+                        <span class="detailInfo">
+                            The Request for <b>{{result.type}}</b> is available.
+                        </span>
+                    </a>
+                    <a class="list-group-item">
+                        <span class="detailIcon">
+
+                        </span>
+                        <span class="detailInfo">
+                            Kindly contact <b>{{result.contactPersonName}} </b>
+                        </span>
+                    </a>
+                    <a class="list-group-item">
+                        <span class="detailIcon">
+
+                        </span>
+                        <span class="detailInfo">
+                            Kindly contact <b>Ph: {{result.contactMobileNumber}}</b>
+                        </span>
+                    </a>
+                    <a class="list-group-item">
+                        <span class="detailIcon">
+
+                        </span>
+                        <span class="detailInfo">
+                            Find your resources at Address:{{result.address}}.
+                        </span>
+                    </a>
+                    <a class="list-group-item">
+                        <span class="detailIcon">
+
+                        </span>
+                        <span class="detailInfo">
+                            <p>Thanks for contacting us. <br> Get well soon... Stay Safe!!!</p>
+                        </span>
+                    </a>
+
+
+                </div>
+            </div>
+
+
+        </div>
+        
+    </div>
+</div>
+
+<!-- <div *ngIf="searchResult">
+    <strong style="align-items: center;color: rgb(0, 96, 223);">
+    Sorry!! , Requested resource not found. We Are working on it. 
+    </strong>
+</div> -->
+
+<div class="productCardContainer" style="    padding: 15px;
+" *ngIf="searchResult">
+    <div class="productCardContent" style="display: flex;
+    flex-direction: row;">
+         <strong style="align-items: center;color: rgb(0, 96, 223);">
+            Sorry!! , Requested resource not found. We Are working on it. 
+            </strong>
+
+
+        </div>
+        
+    </div>
+
+

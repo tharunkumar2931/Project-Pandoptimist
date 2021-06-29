@@ -1,0 +1,389 @@
+.example-card {
+    max-width: 360px;
+    width: 240px;
+    min-width: 200px;
+}
+
+.example-card:hover {
+    box-shadow: 0 2.5px 10px 2.5px #4154F1;
+}
+
+.mat-card-header .mat-card-title {
+    margin-bottom: 2px;
+}
+
+.surgeon {
+    margin-top: 5px;
+    height: 210px;
+    justify-content: center;
+}
+
+.dot {
+    color: green;
+    margin-left: 3px;
+}
+
+.connect-bt {
+    background-color: green;
+    color: whitesmoke;
+    width: 100%;
+}
+
+
+/* ====================chat ================== */
+
+
+/* ====================chat ================== */
+
+
+/* ====================chat ================== */
+
+
+/* ====================chat ================== */
+
+
+/* ====================chat ================== */
+
+
+/* ====================chat ================== */
+
+.chat-ui {
+    padding-right: 15px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 5%;
+    padding-top: 250px;
+}
+
+@media (max-width: 640px) {
+    .container {
+        display: flex;
+        padding-top: 145%;
+        margin-left: 0%;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+.chat {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.card {
+    height: 500px;
+    border-radius: 15px !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.contacts_body {
+    padding: 0.75rem 0 !important;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.msg_card_body {
+    overflow-y: auto;
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+}
+
+.card-footer {
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+}
+
+.container {
+    align-content: center;
+}
+
+.search {
+    border-radius: 15px 0 0 15px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 0 !important;
+    color: white !important;
+}
+
+.search:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.type_msg {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 0 !important;
+    color: white !important;
+    height: 60px !important;
+    overflow-y: auto;
+}
+
+.type_msg:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.attach_btn {
+    border-radius: 15px 0 0 15px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 0 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.send_btn {
+    border-radius: 0 15px 15px 0 !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 0 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.search_btn {
+    border-radius: 0 15px 15px 0 !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 0 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.contacts {
+    list-style: none;
+    padding: 0;
+}
+
+.contacts li {
+    width: 100% !important;
+    padding: 5px 10px;
+    margin-bottom: 15px !important;
+}
+
+.active {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.user_img {
+    height: 70px;
+    width: 70px;
+    border: 1.5px solid #f5f6fa;
+}
+
+.user_img_msg {
+    height: 40px;
+    width: 40px;
+    border: 1.5px solid #f5f6fa;
+}
+
+.img_cont {
+    position: relative;
+    height: 70px;
+    width: 70px;
+}
+
+.img_cont_msg {
+    height: 40px;
+    width: 40px;
+}
+
+.online_icon {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: #4cd137;
+    border-radius: 50%;
+    bottom: 0.2em;
+    right: 0.4em;
+    border: 1.5px solid white;
+}
+
+.offline {
+    background-color: #c23616 !important;
+}
+
+.user_info {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 15px;
+}
+
+.user_info span {
+    font-size: 20px;
+    color: white;
+}
+
+.user_info p {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.video_cam {
+    margin-left: 50px;
+    margin-top: 5px;
+}
+
+.video_cam span {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.msg_cotainer {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: #82ccdd;
+    padding: 10px;
+    position: relative;
+}
+
+.msg_cotainer_send {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 25px;
+    background-color: #78e08f;
+    padding: 10px;
+    position: relative;
+}
+
+.msg_time {
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+}
+
+.msg_time_send {
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+}
+
+.msg_head {
+    position: relative;
+}
+
+#action_menu_btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.action_menu {
+    z-index: 1;
+    position: absolute;
+    padding: 15px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 15px;
+    top: 30px;
+    right: 15px;
+    display: none;
+}
+
+.action_menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.action_menu ul li {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+}
+
+.action_menu ul li i {
+    padding-right: 10px;
+}
+
+.action_menu ul li:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media(max-width: 576px) {
+    .contacts_card {
+        margin-bottom: 15px !important;
+    }
+}
+
+
+/*Vedio call css */
+
+#video-wrapper {
+    text-align: center;
+    background-color: #343434;
+    border-radius: 4px;
+}
+
+#remote-video {
+    /* max-width: 100%; */
+    /* max-height: 50vh; */
+    border-radius: 4px;
+}
+
+#local-video {
+    margin-left: 450px;
+    margin-bottom: -63px;
+    bottom: 1.5rem;
+    width: 10vw;
+    height: 10vw;
+    max-width: 10rem;
+    border: 3px solid rgb(252, 252, 252);
+    border-radius: 4px;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    margin-top: 5px !important;
+    margin-left: 12px;
+}
+
+@media (max-width: 640px) {
+    .chat-ui {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    .vedio-ui {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    .row {
+        padding-top: 10px;
+        width: 90% !important;
+        line-height: 12 !important;
+    }
+    #local-video {
+        margin-left: 150px !important;
+        margin-bottom: -50px !important;
+        bottom: 1.5rem !important;
+        width: 30vw !important;
+        height: 30vw;
+        max-width: 14rem;
+        border: 3px solid white;
+        border-radius: 4px;
+    }
+    @media(min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        .row {
+            width: 90%;
+            line-height: 12;
+        }
+    }
+}

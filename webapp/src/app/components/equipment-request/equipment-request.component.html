@@ -1,0 +1,126 @@
+<div class="main">
+    <div class="container">
+        <div class="signup-content">
+            <!-- <div class="signup-img">
+                <img src="../../../assets/pexels-anna-shvets-3786157.jpg" alt="">
+                <div class="signup-img-content">
+                    <h2>Register now </h2>
+                   <p>while seats are available !</p>
+                </div>
+            </div> -->
+            <div class="signup-form">
+                <form [formGroup]="EquipmentResourceForm" (ngSubmit)="registerEquipments()" class="register-form" id="register-form">
+                    <h1 class="title">Equipment Request Form.</h1>
+
+                    <div class="form-row">
+                        <div class="form-group">
+
+                            <div class="form-input">
+                                <label for="contactPersonName" class="required">Contact Person</label>
+                                <input formControlName="contactPersonName" matInput placeholder="Contact Person Name">
+                                <div *ngIf="contactPersonName.invalid && contactPersonName.touched">
+                                    <small class="text-danger" *ngIf="contactPersonName.errors?.required">Contact Person
+                                        Name</small>
+                                    <small class="text-danger" *ngIf="contactPersonName.errors?.minlength">Contact
+                                        Person Name must be
+                                        at least 3 characters</small>
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <label for="type" class="required">Type</label>
+                                <select formControlName="type" class="form-control" id="selection" required>
+                                    <option *ngFor="let resouceType of gettype" [value]="resouceType.medicalType">
+                                        {{resouceType.medicalType}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-input">
+                                <label for="medicineName" class="required">Equipment Name</label>
+                                <input formControlName="medicalEquipmentName" matInput placeholder="Enter Equipment NFame">
+                                <div *ngIf="medicalEquipmentName.invalid && medicalEquipmentName.touched">
+                                    <small class="text-danger" *ngIf="medicalEquipmentName.errors?.required">Equipment
+                                        Name required</small>
+                                    <small class="text-danger" *ngIf="medicalEquipmentName.errors?.minlength">Equipment
+                                        name must be
+                                        at least 3 characters</small>
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <label for="avalabilityPlace" class="required">City</label>
+                                <mat-form-field class="example-full-width" style="width: 100%;margin-top: -15px;">
+                                    <input type="text" aria-label="Number" matInput [formControl]="city" [matAutocomplete]="auto" required>
+                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                            {{option}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="form-input">
+                                <label for="contactPersonName" class="required">Mobile Number</label>
+                                <input formControlName="contactMobileNumber" type="number" [class.is-invalid]="contactMobileNumber.invalid && contactMobileNumber.touched" maxlength="10" placeholder="Enter Mobile Number" required>
+                                <div *ngIf="contactMobileNumber.invalid && contactMobileNumber.touched">
+                                    <small class="text-danger" *ngIf="contactMobileNumber.dirty && contactMobileNumber.invalid">Valid
+                                        Mobile Number required</small>
+                                    <small class="text-danger" *ngIf="contactMobileNumber.errors?.maxlength">Mobile
+                                        Number must
+                                        be 10 digits</small>
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <label for="equip" class="required">Equipment Type</label>
+                                <select formControlName="typeofEquipment" class="form-control" id="selection" required>
+                                    <option *ngFor="let equipment of allEquipmentTypes"
+                                        [value]="equipment.typeOfMedicalEquipment">
+                                        {{equipment.typeOfMedicalEquipment}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-input">
+                                <label for="address" class="required">Address</label>
+                                <input formControlName="address" matInput placeholder="Enter the address">
+                                <div *ngIf="address.invalid && address.touched">
+                                    <small class="text-danger" *ngIf="address.errors?.required">Address is
+                                        required</small>
+                                    <small class="text-danger" *ngIf="address.errors?.minlength">Address must be at
+                                        least 3
+                                        characters</small>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-input d-inline-flex" style="padding-top: 10px;">
+                                <!-- <section class="example-section"> -->
+                                <div class="mr-2">
+                                    <input type="checkbox" [(ngModel)]="theCheckbox" formControlName="isVerified" data-md-icheck (change)="toggleVisibility($event)" style="width: auto;" />
+                                </div>
+                                <div>
+                                    <label for="chequeno">Resource is <span *ngIf="marked">Verified !!</span><span *ngIf="!marked">Unverified !!</span></label>
+
+                                </div>
+                                <!-- <section class="example-section">
+                                    <mat-checkbox class="example-margin" formControlName="isVerified" value=false>Verified!
+                                    </mat-checkbox>
+                                </section> -->
+
+                                <!-- </section> -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <button mat-raised-button class="color" color="primary">Add Resource</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

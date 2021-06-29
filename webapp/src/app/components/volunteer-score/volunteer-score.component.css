@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.leaderboard{
+    max-width: 25rem;
+    /* border: 1px solid black; */
+    margin: 5rem auto;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 16px 1px #aaa;
+}
+
+header{
+    background-color: #4154F1;
+    color: white;
+    text-transform: uppercase;
+    border-top-left-radius: 1rem ;
+    border-top-right-radius: 1rem ;
+    height: 15rem;
+    position:relative;
+}
+
+h1{
+    font-size: 3rem;
+    line-height: 3rem;
+    position: absolute;
+    margin-left: 4rem;
+    top: 4rem;
+}
+img{
+    height: 18rem;
+    /* position: absolute; */
+    margin-left: 114px;
+    padding-left: 45px;
+    bottom: 0;
+    /* margin-left: 11px; */
+    right: 1rem;
+}
+
+table{
+    background-color: white;
+    color: #999;
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom-left-radius: 1rem ;
+    border-bottom-right-radius: 1rem ;
+}
+
+thead{
+    font-size: 0.75rem;
+    color: #555;
+}
+
+tbody .name{
+    color:  #555;
+    font-weight:bold ;
+    border-collapse: collapse;
+}
+
+.name{
+    text-align: left;
+}
+.rank, .score, .level{
+    text-align: left;
+}
+
+.score, .level{
+    width: 14ch;
+}
+
+.rank{
+    width: 4ch;
+}
+
+th{
+    padding: 1rem 1rem 0;
+    color: #4154F1;
+}
+
+tbody tr:nth-child(2n){
+background-color: #8793af;
+}
+
+td{
+    padding: 1rem 1rem;
+}
+
+@media screen and (max-width: 1024px) { 
+    .leaderboard{
+        max-width: 25rem;
+        border: 10px solid black;
+        margin: 5rem auto;
+        border-radius: 1rem;
+        box-shadow: 2px 2px 16px 1px #aaa;
+    }
+    header{
+        background-color: #4154F1;
+        color: white;
+        text-transform: uppercase;
+        border-top-left-radius: 1rem ;
+        border-top-right-radius: 1rem ;
+        height: 15rem;
+        position:relative;
+    }
+    
+  
+h1{
+    font-size: 1rem;
+    line-height: 0rem;
+    position: absolute;
+    margin-left: 4rem;
+  top: 9rem;
+}
+
+img{
+   height: 18rem;
+    margin-left: 63px;
+    padding-left: 30px;
+	
+	}
+    
+    table{
+        background-color: white;
+        color: #999;
+        width: 100%;
+        border-collapse: collapse;
+        border-bottom-left-radius: 1rem ;
+        border-bottom-right-radius: 1rem ;
+    }
+    
+    thead{
+        font-size: 0.75rem;
+        color: #555;
+    }
+    
+    tbody .name{
+        color:  #999;
+        font-weight:bold ;
+        border-collapse: collapse;
+    }
+    
+    .name{
+        text-align: left;
+    }
+    .rank, .score, .level{
+        text-align: left;
+    }
+    
+    .score, .level{
+        width: 14ch;
+    }
+    
+    .rank{
+        width: 4ch;
+    }
+    
+    th{
+        padding: 1rem 1rem 0;
+        color: #4154F1;
+    }
+    
+    tbody tr:nth-child(2n){
+    background-color: #8793af;
+    }
+    
+    td{
+        padding: 1rem 1rem;
+    }
+    
+
+}
+
+
+

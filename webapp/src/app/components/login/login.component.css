@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.font{
+    font-family: "Helvetica";
+  }
+
+.loginicon{
+    height: 70px;
+    width: 100px;
+    margin-left: 90px;
+    margin-bottom: 10px;
+}
+.border{
+    border: 5px solid #14A09D;
+    border-radius: 8px;
+    padding: 20px 5px 20px 5px;
+}
+.color{
+    background-color: #4154f1;
+}
+
+.form{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 190px;
+}
+.child{
+    width: 30%;
+}
+.title{
+    text-decoration-line: underline;
+}

@@ -1,0 +1,68 @@
+<!-- <div class="container col-md-4 offset-md-4">
+    <div class="input-group" style="margin-top: 20px;">
+        <h1 style="margin-top: 7px; margin-right: 5px;">please select your role: </h1>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Role</mat-label>
+                <mat-select (selectionChange)="role($event)">
+                    <mat-option *ngFor="let role of roles" [value]="role.value">
+                        {{role.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div style="float: right;margin-top: 7px; margin-left: 5px;"> <button mat-stroked-button color="primary"
+                    (click)="selectRole()">Select</button>
+            </div>
+
+        </div>
+
+    </div>
+</div> -->
+<div class="container pt-4 mb-5">
+    <h1 class="text-center font">Please select your respective role.</h1>
+    <div class="row" id="service-cards">
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-4 mt-4">
+            <div class="col">
+
+                <div class="card card1 text-center h-90" role="button" (click)="selectRole('volunteer')">
+                    <a>
+                        <div>
+                            <img src="/assets/charity.png" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body mt-2">
+                            <h5 class="card-title">Volunteer</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card1 text-center h-90" role="button" (click)="selectRole('donor')">
+                    <a>
+                        <div>
+
+                            <img src="/assets/heart.png" class="card-img-top" alt="...">
+
+                        </div>
+                        <div class="card-body mt-2">
+                            <h5 class="card-title">Blood Donor</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card1 text-center h-90" role="button" (click)="selectRole('doctor')">
+                    <a>
+                        <div>
+
+                            <img src="/assets/doctor-icon.png" class="card-img-top" alt="...">
+                   
+                </div>
+                <div class="card-body mt-2">
+                    <h5 class="card-title">Consulting Doctor</h5>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

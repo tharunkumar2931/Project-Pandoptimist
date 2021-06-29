@@ -1,0 +1,148 @@
+<div class="container">
+  <div id=main-content class="row text-center main-bg mb-5" style="height: 500px;">
+    <div class="col-sm-5 mt">
+      <p class="subtitle">COVID-19 Pandemic has caused unprecedented public health and economic crisis.
+        As a response to face the current emergency, we are realizing a fundamental contribution
+         to tackle the crisis through science and innovation.</p>
+      <h1 class="title">Pandoptimist is a crowd sourcing platform to help all their emergency health requirements.</h1>
+    </div>
+    <div class="col-sm-7">
+      <div>
+      <img src="/assets/medical.svg" class="mainimg">
+    </div>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+  <div class="row" id="tipscarousel">
+    <div id="carouselExampleCaptions" class="carousel slide mt-4 mb-4" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="card text-center">
+            <!-- <div class="card-header">
+              from govt. of India
+            </div> -->
+            <div class="card-body bg1 text-black">
+              <div class="container">
+                <h5 class="card-title">Masking and sanitising</h5>
+                <img class="tipsvg" src="/assets/register.png" alt="tips">
+                <p class="card-text">"wear double mask properly and take sanitizer while going out of home and wash
+                  hands"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" *ngFor="let tip of tips">
+          <div class="card text-center">
+            <!-- <div class="card-header">
+              <mat-card-title>{{tip.name}}</mat-card-title>
+            </div> -->
+            <div class="card-body bg1 text-black">
+              <div class="container">
+                <h5 class="card-title">{{tip.adviceOn}}</h5>
+                <img class="tipsvg" src="/assets/register.png" alt="tips">
+                <p class="card-text">"{{tip.tips}}"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="row" id="service-cards">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-4 mt-4">
+      <div class="col">
+        <div class="card card1 text-center h-100">
+          <div>
+          <img src="/assets/charity.png" class="card-img-top" alt="...">
+        </div>
+          <div class="card-body">
+            <h5 class="card-title">Be a Volunteer</h5>
+            <p class="card-text">Given the many challenges presented by the pandemic, the show of solidarity exhibited through volunteering is really heartening. Volunteers exhibit pure selflessness for the greater cause of humanity..</p>
+            <a routerLink="/register" class="btn">register <img src="/assets/right-arrow.png" width="15px"></a>
+          </div>
+
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card1 text-center h-100">
+          <div>
+          <img src="/assets/heart.png" class="card-img-top" alt="...">
+        </div>
+          <div class="card-body">
+            <h5 class="card-title">Be a Blood Donor</h5>
+            <p class="card-text">Out of the many challenges in this pandemic, scarcity of blood is one at the top. Blood donationis an altruistic gift that you can give to othersand saves their lives..</p>
+            <a routerLink="/register" class="btn">register <img src="/assets/right-arrow.png" width="15px"></a>
+          </div>
+
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card1 text-center h-100">
+          <div>
+          <img src="/assets/doctor-icon.png" class="card-img-top" alt="...">
+        </div>
+          <div class="card-body">
+            <h5 class="card-title">Be a Consulting Doctor</h5>
+            <p class="card-text">With the massive pressure that pandemic brings on the Health Infrastructure, the most courageous yet vulnerable frontline workers are Doctors..</p>
+            <a routerLink="/register" class="btn">register <img src="/assets/right-arrow.png" width="15px"></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+  <div class="row mb-4 mt-4">
+    <div class="col-md-7">
+<img src="/assets/about.svg" class="aboutimg" width="500" height="500">
+    </div>
+    <div class="col-md-5 mt-5">
+      
+      <h1><img src="/assets/double-tick.png" width="30px" height="30px"> Volunteer</h1>
+      <p>In the current crisis, people are separated from loved ones and witness reports on the damage to the Health infrastructures – Hospital beds, Medicines,
+         Medical Equipment supplies. By volunteering, you can join use with the Nobel Cause to help people to overcome feelings of inertia and helplessness to find ourselves solace from collaborating with others towards the same goal.</p>
+      <h1><img src="/assets/double-tick.png" width="30px" height="30px"> Donor</h1>
+      <p>Throughout the world Blood Donors have demonstrated an exceptional display of solidarity across the world. Responding to calls for help from their local communities, they are real heroes.
+         By donating blood,you give a lifeline in an emergency for people who need life-saving treatments. When you as a human being step up to donate blood during the pandemic, you become a beacon of selflessness and optimism.</p>
+      <h1><img src="/assets/double-tick.png" width="30px" height="30px"> Consulting Doctor</h1>
+      <p>Every day, you turn as a selfless warriors are giving it your all in health-care settings while cutting themselves off from their families and loved ones.  The sacrifice a doctor makes for the 
+        safety and welfare of humanity is priceless and deserves lifelong gratitude on our end.</p>
+
+    </div>
+  </div>
+
+
+  <hr class="featurette-divider">
+
+  <div id="score">
+    <div  class="row text-center main-bg mb-5" style="height: 600px;">
+      <div class="col-sm-5 mt">
+        <p class="subtitle">Volunteers like you help make the world a better place with your time and efforts. Honestly, I don’t think things would have run as smoothly without your help. Thanks a bunch.</p>
+        <h1 class="title">“This calls for celebrating! Congratulations!”</h1>
+      </div>
+      <div class="col-sm-7">
+        <app-volunteer-score></app-volunteer-score>
+      </div>
+    </div>
+  </div>
+  
+
+</div>

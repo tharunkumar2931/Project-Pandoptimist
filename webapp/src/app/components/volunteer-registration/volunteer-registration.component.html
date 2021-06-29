@@ -1,0 +1,209 @@
+<div id="sect1" class=" main ">
+
+    <div class="container p-3 mb-5 bg-white border">
+        <form [formGroup]="volunteerform" (ngSubmit)="VolunteerRegister()" class="form-container">
+            <h2 class="title">Volunteer Registration Form</h2>
+            <!-- <div class="card right-profile">
+                <div class="profile">
+                    <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+                        <img [src]="imageURL" [alt]="volunteerform.value.name">
+                    </div>
+                </div>
+                <h4>Volunter</h4>
+                <h3>{{ fullName }}</h3>
+                <p class="desc">Volunteering is about giving, and we’re thrilled about all the care and support you’ve given us. May it return to you many times over !!.</p>
+            </div> -->
+            <!-- <div class="ml-3" style="color: #b90000;">* <span style="color: black;">required</span></div> -->
+
+            <div class="form-group col-12" style="padding-top: 25px;">
+                <label class="required">Full Name</label>
+                <input type="text" [class.is-invalid]="name.invalid && name.touched" [(ngModel)]="fullName" formControlName="name" placeholder="Enter Full Name" class="capitalize" required>
+                <div *ngIf="name.invalid && name.touched">
+                    <div class="text-danger" *ngIf="name.errors?.required">Name is required</div>
+                    <div class="text-danger" *ngIf="name.errors?.pattern || name.errors?.minlength">Name must be at least 3 characters</div>
+                </div>
+
+            </div>
+
+            <div class="form-group col-12">
+                <label class="required">City</label>
+                <mat-form-field appearance="outline" class="example-full-width" style="display: block;position: relative;flex: auto; min-width: 0; ">
+                    <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+
+
+
+            <div class="form-group col-12">
+                <label for="phoneNumber" class="required">Mobile Number</label>
+                <input formControlName="phoneNumber" type="number" [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched" placeholder="Enter Mobile Number" required>
+                <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
+                    <small class="text-danger" *ngIf="phoneNumber.errors?.required"> Mobile Number required</small>
+                    <small class="text-danger" *ngIf="phoneNumber.errors?.pattern || phoneNumber.errors?.maxlength">Valid Mobile Number must be 10 digits</small>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group col-9">
+                    <label for="email">Email ID</label>
+                    <input type="text" placeholder="Enter Email Id" [disabled]=true [value]='this.prefilledemail.mail'>
+                    <!-- <input formControlName="emailId" type="text" placeholder="Enter Email Id" [class.is-invalid]="emailId.invalid && emailId.touched" [(ngModel)]="myemail.mail" required>
+                    <div *ngIf="emailId.invalid && emailId.touched">
+                        <small class="text-danger" *ngIf="emailId.errors?.required">Valid Email ID required</small>
+                        <small class="text-danger" *ngIf="phoneNumber.errors?.pattern || emailId.errors?.minlength">Valid Email like(username123@gmail.com)</small>
+                    </div> -->
+                </div>
+
+                <div class="form-group mt-3">
+                    <button mat-stroked-button color="primary" type="button" (click)="getOtp() ">Send OTP</button>
+
+                    <!-- <input type="button" class="btn btn-secondary btn-sm btn-o " (click)="getOtp() " value="Send OTP" required> -->
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group col-9">
+                    <label for="otp" class="required">OTP</label>
+                    <input formControlName="otp" maxlength="6" placeholder="Enter OTP" [class.is-invalid]="otp.invalid && otp.touched" [(ngModel)]="otpNumber" required>
+                    <span *ngIf="otp.invalid && otp.touched">
+                        <small class="text-danger" *ngIf="otp.errors?.required">OTP is required</small>
+                        <small class="text-danger" *ngIf="otp.errors?.pattern || otp.errors?.maxlength">OTP must be 6 digits</small>
+                    </span>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button mat-stroked-button color="primary" type="button" (click)="verifyOtp()">Verify OTP</button>
+
+                    <!-- <input type="button" class="btn-v btn btn-secondary btn-sm" (click)="verifyOtp() " value="Verify OTP" required> -->
+                </div>
+            </div>
+            <div class="form-inline mt-3">
+                <div class="form-group col-9">
+                    <label for="pic" class="required">Upload your pic</label>
+                    <input type="file" accept="image/*" (change)="showPreview($event)" formControlName="filepath" required>
+                </div>
+            </div>
+            <button type="submit" class="mt-4 btn-submit" mat-raised-button color="primary" data-mini="true" data-inline="true ">Register</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<div class="container">
+
+
+
+    <form [formGroup]="volunteerform" (ngSubmit)="VolunteerRegister()" class="form-container">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Volunteer Information</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <input formControlName="name" matInput placeholder="Full Name">
+                            <mat-error *ngIf="name.invalid && name.touched">
+                                {{errors.name}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <input formControlName="phoneNumber" matInput placeholder="Phone Number">
+                            <mat-error *ngIf="phoneNumber.invalid && phoneNumber.touched">
+                                {{errors.phoneNumber}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field class="full-width">
+                            <textarea formControlName="emailId" matInput placeholder="Email Id" [(ngModel)]="myemail.mail"></textarea>
+                            <mat-error *ngIf="emailId.invalid && emailId.touched">
+                                {{errors.emailId}}
+                            </mat-error>
+                        </mat-form-field>
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" class="btn btn-block btn-outline-danger" (click)="getOtp()" value="GET OTP">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field class="full-width">
+                            <textarea formControlName="otp" matInput placeholder="OTP" [(ngModel)]="otpNumber"></textarea>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <input type="button" class="btn btn-block btn-outline-danger" (click)="verifyOtp()" value="verify">
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-ms-6 mb-3 mr-3">
+
+                        <input type="file" (change)="onFileChanged($event)" formControlName="filepath">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <input type="button" (click)="onUpload()" value="upload">
+
+                    </div>
+
+                </div>
+            </mat-card-content>
+            <div class="row" *ngIf="showMsg">
+                <div class="col-xs-12">
+                    <p class="alert alert-success">
+                        <strong>Registration Success!</strong> Please click here to login!.
+
+                    </p>
+                </div>
+            </div>
+            <mat-card-actions>
+                <button mat-raised-button color="primary">Save</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+
+</div> -->

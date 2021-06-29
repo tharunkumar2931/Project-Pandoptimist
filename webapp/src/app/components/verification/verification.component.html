@@ -1,0 +1,148 @@
+
+
+<div class="sos-request-container page-wrapper">
+    <div class="row" style="justify-content: center;">
+        <div class="col-md-4 search">
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="">
+                        <div class="productCardContainer">
+                            <div class="productCardContent">
+                                <div class="productCardImage">
+                                    <img src="https://pbs.twimg.com/profile_images/777547960850718720/uLB18LXG.jpg" alt="" />
+                                    <a class="imageCardEffect">Product</a>
+                                </div>
+
+
+                                <div style="margin-top: -80px;
+                                " class="productCardDetails" *ngIf="myResource.id==null">
+                                    <div class="productCardModel">
+                                        <span class="modelCardEffect"></span>
+                                        <a style="color: rgba(226, 119, 32, 0.836);font-weight: bolder;">
+                                            <strong>Unverified Resource</strong>
+                                            
+                                        </a>
+                                    </div>
+                                    <div class="productCardNoRequest">
+                                        <!-- <h2 class="card-title text-center">Your Request</h2> -->
+                                        <p>No Unverified Resource currently!!!</p>
+                                        <p>Come back after some time</p>
+
+                                    </div>
+                                   
+                                </div>
+
+
+
+                                <div style="margin-top: -80px;
+                                " class="productCardDetails" *ngIf="myResource.id!=null">
+                                    <div class="productCardModel">
+                                        <span class="modelCardEffect"></span>
+                                        <a>
+                                            <strong>Unverified Resource</strong>
+                                        </a>
+                                    </div>
+                                    <div class="productCardDetailsList">
+                                        <div class="list-group">
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Type: {{myResource.type}}
+                                                </span>
+
+                                            </a>
+                                            <a class="list-group-item" *ngIf="myResource.bedType.length!==0">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    BedType: {{myResource.bedType}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item" *ngIf="myResource.medicineName.length!==0">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Medicine: {{myResource.medicineName}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item" *ngIf="myResource.medicalEquipmentName.length!==0">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Address: {{myResource.avalabilityPlace}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Name: {{myResource.contactPersonName}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Number: {{myResource.contactMobileNumber}}
+                                                </span>
+                                            </a>
+                                            <a class="list-group-item">
+                                                <span class="detailIcon">
+                                                    <i class="fa fa-dot-circle-o"></i>
+                                                </span>
+                                                <span class="detailInfo">
+                                                    Verification: {{myResource.isVerified}}
+                                                </span>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+                
+                                    <div class="productCardPrice">
+
+                                        <button class="btn addToCart" (click)="verifyResource()">
+                                            <i class="fas fa-thumbs-up"></i> Verify
+                                                               </button>
+                                        <button class="btn addToCart" (click)="unVerifyResource()">
+                                            <i class="fas fa-share"></i> Skip
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+
+.font{
+    font-family: "Helvetica";
+  }
+.border {
+    border: 5px solid #4154f1;
+    border-radius: 8px;
+    padding: 20px 5px 20px 5px;
+}
+
+.color {
+    background-color: #4154f1;
+}
+
+.container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 190px;
+}
+
+.form {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.title {
+    text-decoration-line: underline;
+    text-align: center;
+}

@@ -1,0 +1,370 @@
+<div class="row">
+    <div class="mt-4 col-sm-3" style="margin-right: 15px;" *ngFor="let doctor of pageSlice">
+        <mat-card class="example-card">
+
+            <div>
+                <img mat-card-image class="surgeon" src="/assets/doctor.svg" alt="Doctor Image">
+            </div>
+            <mat-card-header>
+                <mat-card-title>{{doctor.name }}<i class="fas fa-check-circle dot"></i></mat-card-title>
+            </mat-card-header>
+
+            <mat-card-actions>
+                <button (click)="connectAvilable(doctor)" mat-button class="connect-bt">Connect</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <mat-paginator class="mt-2" [length]="this.doctorsOnline.length" [pageSize]="16" [pageSizeOptions]="[ 4,8,16, 32, 64,100]" (page)="onPageChange($event)">
+    </mat-paginator>
+
+</div>
+<div class="col-md-4 mt-4 offset-md-3" *ngIf="Display;">
+    <h3>No Doctor is available at this moment, please come back after a while.</h3>
+</div>
+
+
+
+
+<div class="container ">
+
+    <div class="col-md-4 chat-ui ">
+
+
+        <div class="">
+            <div class="card">
+                <div class="card-header msg_head">
+                    <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                            <img src="https://www.clipartmax.com/png/small/268-2681193_standing-man-with-injured-head-and-leg-with-a-crutch-patient-icon.png" class="rounded-circle user_img">
+                            <span class="online_icon"></span>
+                        </div>
+                        <div class="user_info">
+                            <span>Chat with Doctor</span>
+                        </div>
+                        <div class="example-button-container" style="margin-top: 10px;">
+                            <button mat-fab style="background-color: rgb(20,160,157,0.85);" (click)="showModal(false)" aria-label="Example icon button with a heart icon">
+                                <mat-icon> video_call</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+                </div>
+                <div class="card-body msg_card_body" *ngFor="let m of messages">
+                    <div class="d-flex justify-content-end mb-4 " *ngIf="m.username === this.prefilledemail.mail">
+                        <!-- <span class="msg_time">{{m.date}}</span> -->
+                        <div class="msg_cotainer">
+                            {{m.message}}
+
+                        </div>
+                        <div class="img_cont_msg">
+                            <img src="https://www.clipartmax.com/png/small/268-2681193_standing-man-with-injured-head-and-leg-with-a-crutch-patient-icon.png" class=" rounded-circle user_img_msg ">
+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start mb-4" *ngIf="m.username !== this.prefilledemail.mail">
+                        <div class="img_cont_msg">
+                            <img src="https://library.kissclipart.com/20190406/cwq/kissclipart-surgeon-icon-png-clipart-computer-icons-clip-art-e1b95eb686c71747.jpg " class="rounded-circle user_img_msg">
+                        </div>
+                        <!-- <span class="msg_time_send">{{m.date}}</span> -->
+                        <div class="msg_cotainer_send">
+                            {{m.message}}
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <div class="input-group ">
+                        <div class="input-group-append ">
+                            <span class="input-group-text attach_btn "><i class="fas fa-paperclip "
+                                    style="width: 30px; "></i></span>
+                        </div>
+                        <!-- <textarea name=" " style="padding-top: 20px; padding-left: 25px; background: white; " class="form-control type_msg " placeholder="Type your message... "></textarea> -->
+                        <div class="input-group-append " style="background-color: #82ccdd; border-radius: 15px; ">
+                            <input name="message " autocomplete="off " type="text " [(ngModel)]="messgaeTyped " placeholder="Type Message ... " class=" input-typing form-control ">
+                            <button type="button " class="btn btn-warning btn-flat " [disabled]="!messgaeTyped " (click)="send() ">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-8 vedio-ui ">
+        <div class="card">
+
+
+            <div class="video-content">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+
+                    <div class="row" style="width: 90%; line-height: 12; padding-top: 10px;">
+                        <div class="col text-center">
+                            <div id="video-wrapper">
+                                <video #remoteVideo id="remote-video" poster="./assets/video-placeholder.jpg" autoplay playsinline></video>
+                                <video #localVideo id="local-video" autoplay playsinline [muted]=true></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="example-button-container" style="margin-top: 10px;">
+                            <button mat-fab color="warn" (click)="endCall()" aria-label="Example icon button with a heart icon">
+                                <mat-icon> call_end</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="chat-container">
+    <div class="row">
+        <div class="row">
+            <div class="container-fluid">
+                <div class="">
+
+                    <div class="col-md-8 col-xl-6 chat">
+                        <div class="card" style="    width: 400px;height: 400px;" *ngFor="let m of messages">
+                            <div class="card-header msg_head">
+                                <div class="d-flex bd-highlight">
+                                    <div class="img_cont">
+                                        <img src="https://www.clipartmax.com/png/small/268-2681193_standing-man-with-injured-head-and-leg-with-a-crutch-patient-icon.png" class="rounded-circle user_img_msg" class="rounded-circle user_img">
+                                        <span class="online_icon"></span>
+                                    </div>
+                                    <div class="user_info">
+                                        <span>Chat with {{m.username}}</span>
+
+                                    </div>
+                                    <div class="example-button-container" style="margin-top: 10px;">
+                                        <button mat-fab style="background-color: rgb(20,160,157,0.85);" (click)="showModal(false)" aria-label="Example icon button with a heart icon">
+                                            <mat-icon> video_call</mat-icon>
+                                        </button>
+                                    </div>
+                                    <div class="video_cam">
+                                        <span><i class="fas fa-video"></i></span>
+                                        <span><i class="fas fa-file-medical"></i></span>
+                                    </div>
+                                </div>
+                                <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+                            </div>
+                            <div class="card-body msg_card_body">
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                    </div>
+                                    <div class="msg_cotainer ">
+                                        {{m.message}}
+                                        <span class="msg_time ">{{message.date}}</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        I am fyn
+                                        <span class="msg_time_send">9:10 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="https://www.clipartmax.com/png/small/268-2681193_standing-man-with-injured-head-and-leg-with-a-crutch-patient-icon.png" class="rounded-circle user_img_msg">
+                                    </div>
+                                </div> -->
+
+
+<!-- <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="https://library.kissclipart.com/20190406/cwq/kissclipart-surgeon-icon-png-clipart-computer-icons-clip-art-e1b95eb686c71747.jpg " class="rounded-circle user_img " class="rounded-circle user_img_msg ">
+                                    </div>
+                                    <div class="msg_cotainer ">
+                                        I am looking for your next templates
+                                        <span class="msg_time ">{{message.date}}</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4 ">
+                                    <div class="msg_cotainer_send ">
+                                        Ok, thank you have a good day
+                                        <span class="msg_time_send ">9:10 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg ">
+                                        <img src="https://www.clipartmax.com/png/small/268-2681193_standing-man-with-injured-head-and-leg-with-a-crutch-patient-icon.png " class="rounded-circle user_img_msg ">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4 ">
+                                    <div class="img_cont_msg ">
+                                        <img src="https://library.kissclipart.com/20190406/cwq/kissclipart-surgeon-icon-png-clipart-computer-icons-clip-art-e1b95eb686c71747.jpg " class="rounded-circle user_img " class="rounded-circle user_img_msg ">
+                                    </div>
+                                    <div class="msg_cotainer ">
+                                        Bye, see you
+                                        <span class="msg_time ">9:12 AM, Today</span>
+                                    </div>
+                                </div> 
+</div>
+<div class="card-footer ">
+    <div class="input-group ">
+        <div class="input-group-append ">
+            <span class="input-group-text attach_btn "><i class="fas fa-paperclip " style="width: 30px; "></i></span>
+        </div>
+        <textarea name=" " style="padding-top: 20px; padding-left: 25px;     background: white;" class="form-control type_msg " placeholder="Type your message... "></textarea>
+        <div class="input-group-append " style="background-color: #82ccdd; border-radius: 15px; ">
+            <button type="button " class="btn btn-flat " [disabled]="!messgaeTyped " (click)="send() ">Send</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+-->
+
+
+
+
+<!-- </div>
+    <div class="row ">
+        <div class="card" style="width: 50vw;">
+
+
+            <div class="d-flex flex-column align-items-center justify-content-center">
+
+                <div class="row">
+                    <div class="col text-center">
+                        <div id="video-wrapper">
+                            <video #remoteVideo id="remote-video" poster="./assets/video-placeholder.jpg" autoplay playsinline></video>
+                            <video #localVideo id="local-video" autoplay playsinline [muted]=true></video>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                     <button mat-raised-button color="primary" class="m-2" [disabled]="isCallStarted$ | async"
+                            (click)="showModal(false)">Start Call</button>
+                        <button mat-raised-button class="m-2" [disabled]="isCallStarted$ | async"
+                            (click)="showModal(true)">Join Call</button> 
+<button class="example-button-container" mat-fab color="warn" [disabled]="!(isCallStarted$ | async)" (click)="endCall()">
+                            <mat-icon> call_end</mat-icon>
+                        </button>
+<div class="example-button-container" style="margin-top: 10px;">
+    <button mat-fab color="warn" (click)="endCall()" aria-label="Example icon button with a heart icon">
+                                <mat-icon> call_end</mat-icon>
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+<!--  
+
+<div class="container">
+
+    <div class="col-md-6">
+        <div class="chat">
+            <div class="page-content page-container" id="page-content">
+                <div class="padding">
+                    <div class="row container d-flex justify-content-center">
+                        <div class="box box-warning direct-chat direct-chat-warning">
+                            <div class="box-border">
+                                <div class="box-header with-border fullborder">
+                                    <div class="chattitle">
+                                        <h3 class="box-title"><button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-widget="chat-pane-toggle" data-original-title="Contacts"> <i
+                                                            class="fa fa-comments"></i></button>Chat Message</h3>
+                                        <button style="margin-left: 5px;float: right; margin-right: 5px;" type="button"><i style="padding: 15px;"
+                                                        class="fas fa-video fa-2x "></i></button>
+                                        <span>
+    
+                                                </span>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="direct-chat-messages">
+                                            <div>
+                                                <div class="direct-chat-msg" *ngFor="let m of messages">
+                                                    <div class="direct-chat-info clearfix"> <span class="direct-chat-name pull-left">{{m.username}}</span>
+                                                        <span class="direct-chat-timestamp pull-right">23 Jan 2:00
+                                                                    pm</span>
+                                                    </div> <img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="message user image">
+                                                    <div class="direct-chat-text">
+                                                        <span *ngIf="m.type == 'MESSAGE'" [ngStyle]="{'color': m.color}"> </span> {{m.message}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-footer">
+                                        <div class="bgchat">
+                                            <form action="#" method="post">
+                                                <div class="input-group">
+                                                    <input name="message" autocomplete="off" type="text" [(ngModel)]="messgaeTyped" placeholder="Type Message ..." class=" input-typing form-control">
+                                                    <span style="border-radius:25px; margin-left: 5px;" class="input-group-btn">
+                                                                <button type="button" class="btn btn-warning btn-flat"
+                                                                    [disabled]="!messgaeTyped"
+                                                                    (click)="send()">Send</button>
+                                                            </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+        <app-video-room></app-video-room>
+    </div>
+
+
+</div>
+
+
+
+
+<app-video-room></app-video-room> -->
+
+
+
+
+
+<!-- ///doctor consulation chat bot -->

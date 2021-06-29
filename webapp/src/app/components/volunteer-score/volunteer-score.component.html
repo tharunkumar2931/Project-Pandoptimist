@@ -1,0 +1,28 @@
+<div class="leaderboard">
+    <header>
+        <h1>LEADER BOARD</h1>
+        <img src="../../../assets/images/leader-and-hero-removebg-preview.png" alt="">
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <!-- <th></th> -->
+                <th>Email</th>
+                <th>Total Score</th>
+                <th>Level</th>
+            </tr>
+        </thead>
+
+        <tbody *ngFor="let score of allScore">
+            <tr>
+                <!-- <td class="rank"></td> -->
+                <td class="name">{{score.volunteerEmailId}}</td>
+                <td class="score">{{score.totalScore}}</td>
+                <td class="level">{{score.volunteerLevel}}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
